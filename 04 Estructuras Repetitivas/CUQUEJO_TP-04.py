@@ -1,5 +1,8 @@
 import random
 
+# se agrega una constante para poder cambiar la cantidad de números a procesar, para poder parametrizar la cantidad de ciclos en los ejercicios 8 y 9.
+CANT_NUMEROS = 100
+
 '''1) Crea un programa que imprima en pantalla todos los números enteros desde 0 hasta 100
     (incluyendo ambos extremos), en orden creciente, mostrando un número por línea.'''
 
@@ -108,13 +111,12 @@ negativos y cuántos son positivos. (Nota: para probar el programa puedes usar u
 menor, pero debe estar preparado para procesar 100 números con un solo cambio).'''
 
 
-def ejercicio_08():
-    CANT_NUMEROS = 5
+def ejercicio_08(cant_numeros):
     pares = 0
     impares = 0
     positivos = 0
     negativos = 0
-    for i in range(CANT_NUMEROS):
+    for i in range(cant_numeros):
         num = int(input("ingrese un numero: "))
         if (num < 0):
             negativos += 1
@@ -134,13 +136,13 @@ media de esos valores. (Nota: puedes probar el programa con una cantidad menor, 
 poder procesar 100 números cambiando solo un valor).'''
 
 
-def ejercicio_09():
-    CANT_NUMEROS = 11
+def ejercicio_09(cant_numeros):
+
     suma = 0
-    for i in range(1, CANT_NUMEROS):
+    for i in range(1, cant_numeros):
         numero = int(input("Ingrese un número: "))
         suma += numero
-    promedio = suma / CANT_NUMEROS
+    promedio = suma / cant_numeros
     print(f"El promedio de los números ingresados es: {promedio}")
 
 
@@ -172,9 +174,9 @@ ejercicio_06()
 print("Ejercicio 7 ----------------------------------------------------------------------------")
 ejercicio_07()
 print("Ejercicio 8 ----------------------------------------------------------------------------")
-ejercicio_08()
+ejercicio_08(CANT_NUMEROS)
 print("Ejercicio 9 ----------------------------------------------------------------------------")
-ejercicio_09()
+ejercicio_09(CANT_NUMEROS)
 print("Ejercicio 10 ----------------------------------------------------------------------------")
 ejercicio_10()
 print("FIN EJECUCIÓN EJERCICIOS: ----------------------------------------------------------------------------")
