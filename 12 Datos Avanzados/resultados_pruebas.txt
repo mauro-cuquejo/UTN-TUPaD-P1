@@ -1,0 +1,114 @@
+creo el arbol de cero: {'dato': 1, 'nodo_izq': None, 'nodo_der': None}
+└── 1
+--------------------------------------------------
+creo el nodo con dato 2: {'dato': 2, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│   ┌── 2
+└── 1
+--------------------------------------------------
+creo el nodo con dato 0: {'dato': 0, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│   ┌── 2
+└── 1
+    └── 0
+--------------------------------------------------
+creo el nodo con dato 3: {'dato': 3, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+--------------------------------------------------
+creo el nodo con dato -2: {'dato': -2, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+        └── -2
+--------------------------------------------------
+creo el nodo con dato -1: {'dato': -1, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+        │   ┌── -1
+        └── -2
+--------------------------------------------------
+creo el nodo con dato -3: {'dato': -3, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+        │   ┌── -1
+        └── -2
+            └── -3
+--------------------------------------------------
+creo el nodo con dato 4: {'dato': 4, 'nodo_izq': None, 'nodo_der': None}
+agrego el nodo al arbol:
+│           ┌── 4
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+        │   ┌── -1
+        └── -2
+            └── -3
+--------------------------------------------------
+Busco el nodo de valor 3 e imprimo el subarbol obtenido:
+│   ┌── 4
+└── 3
+--------------------------------------------------
+Busco el nodo de valor 2 e imprimo el subarbol obtenido:
+│       ┌── 4
+│   ┌── 3
+└── 2
+--------------------------------------------------
+Grado maximo arbol: 2
+--------------------------------------------------
+Peso arbol: 8
+--------------------------------------------------
+Procedo a recorrer el arbol y sus datos en los distintos órdenes:
+PREORDEN
+[1, 0, -2, -3, -1, 2, 3, 4]
+INORDEN
+[0, -2, -3, -1]
+POSTORDEN
+[0, -2, -3, -1, 2, 3, 4, 1]
+--------------------------------------------------
+Procedo a eliminar nodos del arbol:
+Elimino el nodo 8 (no existe):
+│           ┌── 4
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+        │   ┌── -1
+        └── -2
+            └── -3
+--------------------------------------------------
+Elimino el nodo 4 (sin hijos):
+│       ┌── 3
+│   ┌── 2
+└── 1
+    └── 0
+        │   ┌── -1
+        └── -2
+            └── -3
+--------------------------------------------------
+Elimino el nodo 2 (con un hijo):
+│   ┌── 3
+└── 1
+    └── 0
+        │   ┌── -1
+        └── -2
+            └── -3
+--------------------------------------------------
+Elimino el nodo -2 (con dos hijos):
+│   ┌── 3
+└── 1
+    └── 0
+        └── -1
+            └── -3
