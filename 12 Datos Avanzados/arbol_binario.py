@@ -38,10 +38,10 @@ def agregar_nodo(nodo, nodo_nuevo):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def leer_arbol_in_orden(arbol):
     if (arbol is None):
-        return
-    leer_arbol_in_orden(arbol["nodo_izq"])
-    print(f"dato: {arbol['dato']}")
-    leer_arbol_in_orden(arbol["nodo_der"])
+        return []
+    izq = leer_arbol_pre_orden(arbol["nodo_izq"])
+    der = leer_arbol_pre_orden(arbol["nodo_der"])
+    return izq if len(izq) > 0 else None + [arbol["dato"]] + der if len(der) > 0 else None
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -49,10 +49,10 @@ def leer_arbol_in_orden(arbol):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def leer_arbol_pre_orden(arbol):
     if (arbol is None):
-        return
-    print(f"dato: {arbol['dato']}")
-    leer_arbol_pre_orden(arbol["nodo_izq"])
-    leer_arbol_pre_orden(arbol["nodo_der"])
+        return []
+    izq = leer_arbol_pre_orden(arbol["nodo_izq"])
+    der = leer_arbol_pre_orden(arbol["nodo_der"])
+    return [arbol["dato"]] + izq + der
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -60,10 +60,10 @@ def leer_arbol_pre_orden(arbol):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def leer_arbol_post_orden(arbol):
     if (arbol is None):
-        return
-    leer_arbol_pre_orden(arbol["nodo_izq"])
-    leer_arbol_pre_orden(arbol["nodo_der"])
-    print(f"dato: {arbol['dato']}")
+        return []
+    izq = leer_arbol_pre_orden(arbol["nodo_izq"])
+    der = leer_arbol_pre_orden(arbol["nodo_der"])
+    return izq + der + [arbol["dato"]]
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -84,8 +84,36 @@ def buscar_nodo(arbol, dato):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 5) ELIMINAR UN NODO EN EL ARBOL (PENDIENTE)
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-def eliminar_nodo(arbol, dato):
-    return
+def eliminar_nodo(nodo, valor):
+    if nodo is None:
+        return None
+
+    if valor < nodo["dato"]:
+        nodo["nodo_izq"] = eliminar_nodo(nodo["nodo_izq"], valor)
+    elif valor > nodo["dato"]:
+        nodo["nodo_der"] = eliminar_nodo(nodo["nodo_der"], valor)
+    else:
+        # Caso 1: sin hijos
+        if nodo["nodo_izq"] is None and nodo["nodo_der"] is None:
+            return None
+        # Caso 2: un hijo
+        elif nodo["nodo_izq"] is None:
+            return nodo["nodo_der"]
+        elif nodo["nodo_der"] is None:
+            return nodo["nodo_izq"]
+        # Caso 3: dos hijos
+        sucesor = nodo_minimo(nodo["nodo_der"])
+        nodo["dato"] = sucesor["dato"]
+        nodo["nodo_der"] = eliminar_nodo(nodo["nodo_der"], sucesor["dato"])
+
+    return nodo
+
+
+def nodo_minimo(nodo):
+    actual = nodo
+    while actual["nodo_izq"] is not None:
+        actual = actual["nodo_izq"]
+    return actual
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
