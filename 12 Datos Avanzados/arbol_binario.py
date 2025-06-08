@@ -102,4 +102,49 @@ def eliminar_nodo(arbol, dato):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-def calcular_grado_arbol(arbol):
+def calcular_grado_nodo(nodo):
+    grado_nodo = 0
+    if nodo["nodo_izq"] is not None:
+        grado_nodo += 1
+    if nodo["nodo_der"] is not None:
+        grado_nodo += 1
+    return grado_nodo
+
+
+def calcular_arbol_post_orden(nodo, grado_max=0):
+    if (nodo is None):
+        return 0
+    calcular_arbol_post_orden(nodo["nodo_izq"], grado_max)
+    calcular_arbol_post_orden(nodo["nodo_der"], grado_max)
+    return max(grado_max, calcular_grado_nodo(nodo))
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 6) CALCULAR PESO ARBOL
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+def calcular_peso_post_orden(nodo):
+    if (nodo is None):
+        return 0
+    izq = calcular_peso_post_orden(nodo["nodo_izq"])
+    der = calcular_peso_post_orden(nodo["nodo_der"])
+    return izq + der + 1
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# IMPRIMIR ARBOL VISUALMENTE
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+def imprimir_arbol_vertical(arbol, prefijo="", es_izq=True):
+    if arbol is None:
+        return
+
+    if arbol["nodo_der"]:
+        nuevo_prefijo = prefijo + ("│   " if es_izq else "    ")
+        imprimir_arbol_vertical(arbol["nodo_der"], nuevo_prefijo, False)
+
+    print(prefijo + ("└── " if es_izq else "┌── ") + str(arbol["dato"]))
+
+    if arbol["nodo_izq"]:
+        nuevo_prefijo = prefijo + ("    " if es_izq else "│   ")
+        imprimir_arbol_vertical(arbol["nodo_izq"], nuevo_prefijo, True)
