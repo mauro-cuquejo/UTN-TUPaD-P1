@@ -14,9 +14,9 @@ def crear_nodo(dato=None, nodo_izq=None, nodo_der=None):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def agregar_nodo(nodo, nodo_nuevo):
     if nodo["dato"] is None:
-        crear_nodo(nodo_nuevo["dato"],
-                   nodo_nuevo["nodo_izq"],
-                   nodo_nuevo["nodo_der"])
+        nodo["dato"] = nodo_nuevo["dato"]
+        nodo["nodo_izq"] = nodo_nuevo["nodo_izq"]
+        nodo["nodo_der"] = nodo_nuevo["nodo_der"]
     else:
         if nodo_nuevo["dato"] < nodo["dato"]:
             if nodo["nodo_izq"] is None:
@@ -28,6 +28,8 @@ def agregar_nodo(nodo, nodo_nuevo):
                 nodo["nodo_der"] = nodo_nuevo
             else:
                 agregar_nodo(nodo["nodo_der"], nodo_nuevo)
+        else:
+            print(f"Se descarta dato duplicado {nodo_nuevo['dato']}")
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -145,21 +147,3 @@ def calcular_peso_post_orden(nodo):
     izq = calcular_peso_post_orden(nodo["nodo_izq"])
     der = calcular_peso_post_orden(nodo["nodo_der"])
     return izq + der + 1
-
-
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ANEXO: IMPRIMIR ARBOL VISUALMENTE
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-def imprimir_arbol_vertical(arbol, prefijo="", es_izq=True):
-    if arbol is None:
-        return
-
-    if arbol["nodo_der"]:
-        nuevo_prefijo = prefijo + ("│   " if es_izq else "    ")
-        imprimir_arbol_vertical(arbol["nodo_der"], nuevo_prefijo, False)
-
-    print(prefijo + ("└── " if es_izq else "┌── ") + str(arbol["dato"]))
-
-    if arbol["nodo_izq"]:
-        nuevo_prefijo = prefijo + ("    " if es_izq else "│   ")
-        imprimir_arbol_vertical(arbol["nodo_izq"], nuevo_prefijo, True)
