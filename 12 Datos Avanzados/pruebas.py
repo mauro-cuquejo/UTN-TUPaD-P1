@@ -1,4 +1,4 @@
-from arbol_binario import crear_nodo, agregar_nodo, leer_arbol_in_orden, leer_arbol_post_orden, leer_arbol_pre_orden, imprimir_arbol_vertical, calcular_arbol_post_orden, calcular_peso_post_orden
+from arbol_binario import crear_nodo, agregar_nodo, leer_arbol_in_orden, leer_arbol_post_orden, leer_arbol_pre_orden, imprimir_arbol_vertical, calcular_arbol_post_orden, calcular_peso_post_orden, buscar_nodo
 from collections import deque
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # PRUEBAS:
@@ -42,11 +42,20 @@ leer_arbol_post_orden(arbol_nuevo)
 print("-" * 50)
 print("Árbol vertical:")
 imprimir_arbol_vertical(arbol_nuevo)
+print("-" * 50)
+print("Busco el nodo de valor 3 e imprimo el subarbol obtenido:")
+nodo3 = buscar_nodo(arbol_nuevo, 3)
+imprimir_arbol_vertical(nodo3)
+print("-" * 50)
+print("Busco el nodo de valor 2 e imprimo el subarbol obtenido:")
+nodo2 = buscar_nodo(arbol_nuevo, 2)
+imprimir_arbol_vertical(nodo2)
 
 print("-" * 50)
 print(f"Grado maximo arbol: {calcular_arbol_post_orden(arbol_nuevo)}")
 print("-" * 50)
 print(f"Peso arbol: {calcular_peso_post_orden(arbol_nuevo)}")
+
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # FIN PRUEBAS
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------
