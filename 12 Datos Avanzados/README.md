@@ -32,7 +32,7 @@ Este repositorio almacena el trabajo práctico integrador de la materia Programa
     * pruebas-recorrido.py
     * pruebas-grado-y-peso.py
     * pruebas-eliminar-nodo.py
-
+- resultados-pruebas.md con capturas de la consola y los resultados obtenidos durante la ejecución de las pruebas.
 - README.md con descripción del trabajo, alumnos y link al video de YouTube.
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 TEMA ELEGIDO: ESTRUCTURAS DE DATOS AVANZADOS -> Árboles Binarios de Búsqueda (BST)
