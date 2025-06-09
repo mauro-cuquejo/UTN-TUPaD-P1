@@ -47,7 +47,7 @@ Se analizará cómo se realizan las operaciones fundamentales en un árbol binar
 A partir de lo expuesto, el objetivo no es solo comprender su uso funcional, sino también destacar la importancia de los árboles binarios como base fundamental para estructuras más complejas en informática.
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-Índice de contenidos del pdf:
+- Índice de contenidos del pdf:
     - Página  3 - Introducción
     - Página  4 - Objetivos
     - Página  5 - Marco teórico
