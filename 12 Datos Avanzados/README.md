@@ -21,17 +21,17 @@ Este repositorio almacena el trabajo práctico integrador de la materia Programa
 
 - Informe teórico en PDF
     * Cuquejo_DíazdeQuintana_TPIntegradorProgramacion.pdf
+- Directorio fuentes:
+    - archivos de código fuente (.py) de la implementación del Árbol Binario
+        * arbol_binario.py
 
-- archivos de código fuente (.py) de la implementación del Árbol Binario
-    * arbol_binario.py
-
-- archivos de código fuente (.py) de las pruebas desarrolladas
-    * auxiliar_pruebas.py
-    * pruebas-crear-arbol-y-agregar-nodos.py
-    * pruebas-buscar-nodo.py
-    * pruebas-recorrido.py
-    * pruebas-grado-y-peso.py
-    * pruebas-eliminar-nodo.py
+    - archivos de código fuente (.py) de las pruebas desarrolladas
+        * auxiliar_pruebas.py
+        * pruebas-crear-arbol-y-agregar-nodos.py
+        * pruebas-buscar-nodo.py
+        * pruebas-recorrido.py
+        * pruebas-grado-y-peso.py
+        * pruebas-eliminar-nodo.py
 - resultados-pruebas.txt con capturas de la consola y los resultados obtenidos durante la ejecución de las pruebas.
 - README.md con descripción del trabajo, alumnos y link al video de YouTube.
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
